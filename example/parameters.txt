@@ -1,0 +1,3 @@
+otufile	asv_abund.norm.transpose.csv
+mapping	asv_map.csv
+tree	asv_tax.csv
