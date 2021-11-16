@@ -51,8 +51,9 @@ output <- function(outputfile) {
      outputfile = str_remove(outputfile, prefix())
      print(outputfile)
   }
-
+  
   x <- t(otu_table(tax_glom(p0, taxrank = 'Kingdom', NArm=T)))
+  #print(colnames(tax_table(p0)))
   colnames(x) <- tax_table(tax_glom(p0, taxrank='Kingdom', NArm=T))[,"Kingdom"]
   if (directoryflag == 0) {
   write.csv(x, paste(outputfile,"kingdom","csv",sep="."))
@@ -106,6 +107,7 @@ output <- function(outputfile) {
   write.csv(x, paste(prefix(), "/genus/", outputfile, ".csv", sep=""))
   }
 
+  if ('Species' %in% colnames(tax_table(p0))) {
   x <- t(otu_table(tax_glom(p0, taxrank = 'Species', NArm=T)))
   colnames(x) <- tax_table(tax_glom(p0, taxrank='Species', NArm=T))[,"Species"]
   if (directoryflag == 0) {
@@ -113,6 +115,7 @@ output <- function(outputfile) {
   }
   else {
   write.csv(x, paste(prefix(), "/species/", outputfile, ".csv", sep=""))
+  }
   }
 }
 #input("plugins/Bar/example/parameters.txt")
