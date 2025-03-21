@@ -51,7 +51,7 @@ output <- function(outputfile) {
      outputfile = str_remove(outputfile, prefix())
      print(outputfile)
   }
-  
+
   x <- t(otu_table(tax_glom(p0, taxrank = 'Kingdom', NArm=T)))
   #print(colnames(tax_table(p0)))
   colnames(x) <- tax_table(tax_glom(p0, taxrank='Kingdom', NArm=T))[,"Kingdom"]
